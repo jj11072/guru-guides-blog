@@ -58,21 +58,20 @@ export const getPostDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug : String!) {
       post(where: { slug: $slug }) {
+        title
+        excerpt
+        featuredImage {
+          url
+        }
         author{
           name
           bio
-          id
           photo {
             url
           }
         }
         createdAt
         slug
-        title
-        excerpt
-        featuredImage {
-          url
-        }
         content {
           raw
         }
